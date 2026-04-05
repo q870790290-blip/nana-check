@@ -95,6 +95,31 @@ button:hover {
   gap: 12px;
 }
 
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.case-card {
+  margin: 0;
+  padding: 16px;
+  border-radius: 12px;
+  background: #10151d;
+  border: 1px solid #2f3748;
+}
+
+.case-card h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.case-card p {
+  margin: 0;
+  color: #c3cad7;
+  line-height: 1.6;
+}
+
 .example-card {
   text-align: left;
   background: #10151d;
