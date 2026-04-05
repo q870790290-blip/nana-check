@@ -32,6 +32,13 @@ assignees: []
 - deeper risk brief
 - comparison against alternatives
 
+## Pricing tier
+
+- Trial check (free first impression)
+- Basic Nana Check (planned: 10U)
+- Deeper Risk Brief (planned: 25U)
+- Comparison Brief (planned: 35U)
+
 ## Any specific concerns?
 
 <!-- hype risk / legitimacy / pricing / team / docs / adoption / hidden red flags -->
@@ -40,3 +47,4 @@ assignees: []
 
 Current payment path is still manual / MVP stage.
 Stablecoin / U payment flow is planned next.
+Payment instructions will be provided after the request is reviewed.
