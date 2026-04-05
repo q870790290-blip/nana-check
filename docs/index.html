@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nana Check</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <h1>Nana Check</h1>
+        <p class="intro">杈撳叆涓€涓」鐩€佸伐鍏枫€佸崗璁垨骞冲彴锛屽厛鎷垮埌涓€鐗堝揩閫熺湡鍋?椋庨櫓鍒濆垽銆?/p>
+        <form id="check-form">
+          <label>
+            鐩爣鍚嶇О
+            <input name="name" placeholder="渚嬪锛欵xample Agent Tool" required />
+          </label>
+          <label>
+            缃戝潃
+            <input name="url" placeholder="https://example.com" />
+          </label>
+          <label>
+            鍒嗙被
+            <select name="category">
+              <option value="project">project</option>
+              <option value="tool">tool</option>
+              <option value="protocol">protocol</option>
+              <option value="platform">platform</option>
+              <option value="token service">token service</option>
+            </select>
+          </label>
+          <label>
+            鍏虫敞鐐?            <textarea name="focus" rows="4" placeholder="渚嬪锛氬畠鏄笉鏄彧浼氳鏁呬簨锛熷€间笉鍊煎緱缁х画璺燂紵"></textarea>
+          </label>
+          <button type="submit">寮€濮?Nana Check</button>
+        </form>
+      </section>
+
+      <section class="card result-card" id="result-card" hidden>
+        <h2>缁撴灉</h2>
+        <div id="result"></div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
