@@ -59,6 +59,13 @@ The goal right now is to validate whether this capability is useful enough to de
 
 At the current MVP stage, payment is still handled manually after a formal request is submitted.
 
+## Current payment method
+
+- Network: **USDT-TRC20**
+- Address: `TDCxzmgAp1PSmEcvamtdhuELf1b5PdzZqz`
+
+For now, users can submit a formal request, then pay manually and attach the transfer hash or screenshot for confirmation.
+
 ## Formal paid request entry
 
 If someone wants a deeper Nana Check judgment, they can open a structured request here:
