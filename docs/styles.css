@@ -167,6 +167,31 @@ a {
   color: #9bb4ff;
 }
 
+.wallet-box {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #10151d;
+  border: 1px solid #2f3748;
+}
+
+.wallet-box p {
+  margin: 8px 0;
+}
+
+.wallet-box code {
+  display: block;
+  padding: 12px;
+  border-radius: 10px;
+  background: #0b1016;
+  color: #c7d2fe;
+  word-break: break-all;
+}
+
+.wallet-note {
+  color: #c3cad7;
+}
+
 ul {
   margin: 8px 0 0;
   padding-left: 20px;
