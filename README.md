@@ -49,3 +49,9 @@ This project is intended to evolve toward a crypto-native, pay-per-use research 
 - future payment rail: stablecoins / U / x402-like flow
 
 The goal right now is to validate whether this capability is useful enough to deserve paid expansion.
+
+## Formal paid request entry
+
+If someone wants a deeper Nana Check judgment, they can open a structured request here:
+
+https://github.com/q870790290-blip/nana-check/issues/new/choose
