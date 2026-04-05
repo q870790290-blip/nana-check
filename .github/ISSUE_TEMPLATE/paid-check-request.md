@@ -48,3 +48,10 @@ assignees: []
 Current payment path is still manual / MVP stage.
 Stablecoin / U payment flow is planned next.
 Payment instructions will be provided after the request is reviewed.
+
+Current preferred payment method:
+
+- USDT-TRC20
+- Address: `TDCxzmgAp1PSmEcvamtdhuELf1b5PdzZqz`
+
+After payment, include the transfer hash / screenshot in the issue thread for confirmation.
