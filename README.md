@@ -41,3 +41,11 @@ npm test
 ## Product direction
 
 This project is intended to evolve toward a crypto-native, pay-per-use research and judgment capability.
+
+## Current trial model
+
+- first impression / trial check: free
+- deeper paid version: planned next
+- future payment rail: stablecoins / U / x402-like flow
+
+The goal right now is to validate whether this capability is useful enough to deserve paid expansion.
