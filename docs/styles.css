@@ -29,6 +29,15 @@ h1, h2, h3 {
   margin-bottom: 20px;
 }
 
+.pricing-banner {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #111827;
+  border: 1px solid #334155;
+  color: #dbe7ff;
+  margin-bottom: 20px;
+}
+
 form {
   display: grid;
   gap: 16px;
@@ -78,6 +87,35 @@ button:hover {
 
 .result-block.hero {
   background: #111827;
+}
+
+.examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.example-card {
+  text-align: left;
+  background: #10151d;
+  border: 1px solid #2f3748;
+  padding: 16px;
+}
+
+.example-card span,
+.example-card small {
+  display: block;
+  margin-top: 6px;
+  color: #c3cad7;
+}
+
+.contact-list {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+a {
+  color: #9bb4ff;
 }
 
 ul {
