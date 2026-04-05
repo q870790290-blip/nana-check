@@ -8,25 +8,25 @@ const EXAMPLES = [
     name: 'Example Agent Tool',
     url: 'https://example.com/docs',
     category: 'tool',
-    focus: '瀹冨浼?AI 鑷姩璧氶挶锛岃€屼笖璇?guaranteed profit銆?,
+    focus: '它宣传 AI 自动赚钱，而且说 guaranteed profit。',
   },
   {
     name: 'Open Source Research Agent',
     url: 'https://github.com/example/research-agent',
     category: 'project',
-    focus: '鎴戞兂鐭ラ亾瀹冨埌搴曟槸 demo 杩樻槸鐪熸湁鍙繍琛岃兘鍔涖€?,
+    focus: '我想知道它到底是 demo 还是真有可运行能力。',
   },
   {
     name: 'Token Insight Club',
     url: 'https://example.com/membership',
     category: 'token service',
-    focus: '瀹冩兂鍗?token-gated 鐮旂┒鍐呭锛屾垜鎯崇煡閬撻闄╅珮涓嶉珮銆?,
+    focus: '它想卖 token-gated 研究内容，我想知道风险高不高。',
   },
   {
     name: 'Protocol Analytics Dashboard',
     url: 'https://example.com/analytics',
     category: 'protocol',
-    focus: '鍒ゆ柇瀹冩槸涓嶆槸鏈夌湡瀹炴暟鎹环鍊硷紝杩樻槸鍙細璁叉晠浜嬨€?,
+    focus: '判断它是不是有真实数据价值，还是只会讲故事。',
   },
 ];
 
@@ -40,10 +40,10 @@ function hasKeyword(text, keywords) {
 }
 
 function getRiskBand(score) {
-  if (score >= 75) return '浣庡埌涓?;
-  if (score >= 55) return '涓?;
-  if (score >= 35) return '涓埌楂?;
-  return '楂?;
+  if (score >= 75) return '低到中';
+  if (score >= 55) return '中';
+  if (score >= 35) return '中到高';
+  return '高';
 }
 
 function analyzeNanaCheck(input) {
@@ -60,91 +60,91 @@ function analyzeNanaCheck(input) {
 
   if (targetUrl) {
     score += 8;
-    greenFlags.push('缁欎簡鏄庣‘缃戝潃锛屽彲浠ョ户缁牳瀵瑰叕寮€淇℃伅銆?);
+    greenFlags.push('给了明确网址，可以继续核对公开信息。');
   } else {
     score -= 10;
-    redFlags.push('娌℃湁鎻愪緵缃戝潃锛屼俊鎭笉瓒筹紝瀹规槗鍙湅鍒板浼犲眰銆?);
-    nextChecks.push('琛ヤ竴涓畼缃戞垨浜у搧椤甸摼鎺ャ€?);
+    redFlags.push('没有提供网址，信息不足，容易只看到宣传层。');
+    nextChecks.push('补一个官网或产品页链接。');
   }
 
   if (name.length >= 4) {
     score += 5;
-    greenFlags.push('鐩爣鍚嶇О娓呮锛屼究浜庡悗缁悳绱㈠拰姣斿銆?);
+    greenFlags.push('目标名称清楚，便于后续搜索和比对。');
   } else {
     score -= 4;
-    redFlags.push('鐩爣鍚嶇О杩囩煭鎴栨ā绯婏紝鍚庣画鐮旂┒瀹规槗鍋忋€?);
+    redFlags.push('目标名称过短或模糊，后续研究容易偏。');
   }
 
   if (['project', 'tool', 'protocol', 'platform', 'token service'].includes(category)) {
     score += 4;
-    greenFlags.push('鍒嗙被鏄庣‘锛屽垽鏂彛寰勬洿绋冲畾銆?);
+    greenFlags.push('分类明确，判断口径更稳定。');
   } else {
-    redFlags.push('鍒嗙被涓嶆竻妤氾紝缁撴灉浼氬亸淇濆畧銆?);
-    nextChecks.push('鏄庣‘瀹冨埌搴曟槸椤圭洰銆佸伐鍏枫€佸崗璁繕鏄钩鍙般€?);
+    redFlags.push('分类不清楚，结果会偏保守。');
+    nextChecks.push('明确它到底是项目、工具、协议还是平台。');
   }
 
-  if (hasKeyword(combined, ['guaranteed', '绋宠禋', 'guarantee', '100x', '鏆村瘜', 'risk free', '鏃犻闄?])) {
+  if (hasKeyword(combined, ['guaranteed', '稳赚', 'guarantee', '100x', '暴富', 'risk free', '无风险'])) {
     score -= 25;
-    redFlags.push('鍑虹幇鏄庢樉澶稿ぇ鏀剁泭鎴栨棤椋庨櫓琛ㄨ堪锛屽浼犻闄╅珮銆?);
+    redFlags.push('出现明显夸大收益或无风险表述，宣传风险高。');
   }
 
-  if (hasKeyword(combined, ['token', 'airdrop', 'futures', 'leverage', '鏈熻揣', '鏉犳潌'])) {
+  if (hasKeyword(combined, ['token', 'airdrop', 'futures', 'leverage', '期货', '杠杆'])) {
     score -= 8;
-    redFlags.push('娑夊強楂樻尝鍔ㄦ垨鎶曟満璇锛岄渶瑕佹洿寮洪獙璇併€?);
-    nextChecks.push('鍏堢‘璁ゅ畠鐨勫晢涓氭ā寮忥紝涓嶈鍙湅浠ｅ竵鍙欎簨銆?);
+    redFlags.push('涉及高波动或投机语境，需要更强验证。');
+    nextChecks.push('先确认它的商业模式，不要只看代币叙事。');
   }
 
   if (hasKeyword(combined, ['github', 'docs', 'documentation', 'open source', 'whitepaper'])) {
     score += 10;
-    greenFlags.push('鏈夋枃妗?浠撳簱绾跨储锛岄€忔槑搴︾浉瀵规洿楂樸€?);
+    greenFlags.push('有文档/仓库线索，透明度相对更高。');
   }
 
   if (hasKeyword(combined, ['agent', 'ai', 'research', 'analysis'])) {
-    nextChecks.push('鏍稿鏄惁鐪熸湁鍙繍琛岃兘鍔涳紝涓嶅彧鏄竴娈?demo 鏂囨銆?);
+    nextChecks.push('核对是否真有可运行能力，不只是一段 demo 文案。');
   }
 
-  if (hasKeyword(combined, ['anonymous team', 'anonymous', '鍖垮悕鍥㈤槦'])) {
+  if (hasKeyword(combined, ['anonymous team', 'anonymous', '匿名团队'])) {
     score -= 12;
-    redFlags.push('鍥㈤槦韬唤涓嶉€忔槑锛屼細鏀惧ぇ鎵ц涓庝俊浠婚闄┿€?);
+    redFlags.push('团队身份不透明，会放大执行与信任风险。');
   }
 
   score = Math.max(5, Math.min(95, score));
 
-  let verdict = '淇℃伅涓嶈冻锛屽厛琛ユ潗鏂欏啀鍒ゆ柇銆?;
-  let confidence = '浣?;
-  let recommendation = '鍏堣ˉ閾炬帴銆佸洟闃熴€佸畾浠峰拰鐪熷疄鐢ㄦ埛鍙嶉锛屽啀鍐冲畾瑕佷笉瑕佺户缁€?;
+  let verdict = '信息不足，先补材料再判断。';
+  let confidence = '低';
+  let recommendation = '先补链接、团队、定价和真实用户反馈，再决定要不要继续。';
 
   if (score >= 70) {
-    verdict = '鍒濇鐪嬬浉瀵规甯革紝浣嗚繕闇€瑕佸仛鏇存繁楠岃瘉銆?;
-    confidence = '涓?;
-    recommendation = '鍙互缁х画璺燂紝浣嗘殏鏃跺彧閫傚悎灏忔垚鏈瀵燂紝涓嶉€傚悎閲嶆姇鍏ャ€?;
+    verdict = '初步看相对正常，但还需要做更深验证。';
+    confidence = '中';
+    recommendation = '可以继续跟，但暂时只适合小成本观察，不适合重投入。';
   } else if (score >= 50) {
-    verdict = '淇″彿娣峰悎锛屽缓璁皑鎱庯紝涓嶈鐩存帴鎶曞叆銆?;
-    confidence = '涓?;
-    recommendation = '鍏堝仛浜屾鏍稿锛屽彧鏈夊叧閿枒鐐硅瑙ｉ噴娓呮鍚庡啀鑰冭檻缁х画銆?;
+    verdict = '信号混合，建议谨慎，不要直接投入。';
+    confidence = '中';
+    recommendation = '先做二次核对，只有关键疑点被解释清楚后再考虑继续。';
   } else if (score >= 30) {
-    verdict = '椋庨櫓鍋忛珮锛屽綋鍓嶆洿鍍忛渶瑕佸己楠岃瘉鐨勭洰鏍囥€?;
-    confidence = '涓?;
-    recommendation = '浼樺厛鎶婂畠褰撻珮椋庨櫓鏍囩殑澶勭悊锛岄櫎闈炲嚭鐜版洿纭殑璇佹嵁銆?;
+    verdict = '风险偏高，当前更像需要强验证的目标。';
+    confidence = '中';
+    recommendation = '优先把它当高风险标的处理，除非出现更硬的证据。';
   } else {
-    verdict = '楂橀闄?楂樺櫔闊充俊鍙锋槑鏄撅紝鍏堜笉瑕佽交淇°€?;
-    confidence = '楂?;
-    recommendation = '鐜板湪鏇村儚璇ョ洿鎺ラ伩寮€锛岃€屼笉鏄户缁姇鍏ユ椂闂村拰閽便€?;
+    verdict = '高风险/高噪音信号明显，先不要轻信。';
+    confidence = '高';
+    recommendation = '现在更像该直接避开，而不是继续投入时间和钱。';
   }
 
   if (greenFlags.length === 0) {
-    greenFlags.push('鐩墠娌℃湁鐪嬪埌瓒冲寮虹殑姝ｅ悜淇″彿銆?);
+    greenFlags.push('目前没有看到足够强的正向信号。');
   }
 
   if (redFlags.length === 0) {
-    redFlags.push('鐩墠娌℃湁鍙戠幇鐗瑰埆鏄庢樉鐨勭孩鏃楋紝浣嗕粛闇€琛ラ獙璇併€?);
+    redFlags.push('目前没有发现特别明显的红旗，但仍需补验证。');
   }
 
   if (nextChecks.length === 0) {
-    nextChecks.push('缁х画鏍稿鍥㈤槦銆佹枃妗ｃ€佷环鏍笺€佺湡瀹炵敤鎴峰弽棣堛€?);
+    nextChecks.push('继续核对团队、文档、价格、真实用户反馈。');
   }
 
-  const summary = `${verdict} 褰撳墠椋庨櫓甯︿负 ${getRiskBand(score)}锛屾渶閲嶈鐨勬槸鍏堢‘璁ゅ叕寮€鏉愭枡涓庣湡瀹炰娇鐢ㄦ儏鍐垫槸鍚︿竴鑷淬€俙;
+  const summary = `${verdict} 当前风险带为 ${getRiskBand(score)}，最重要的是先确认公开材料与真实使用情况是否一致。`;
 
   return {
     target: { name, url: targetUrl, category, focus },
@@ -199,24 +199,24 @@ function renderExamples() {
 form.addEventListener('submit', event => {
   event.preventDefault();
   resultCard.hidden = true;
-  resultContainer.innerHTML = '鍒嗘瀽涓?..';
+  resultContainer.innerHTML = '分析中...';
 
   const payload = Object.fromEntries(new FormData(form).entries());
   const data = analyzeNanaCheck(payload);
 
   resultContainer.innerHTML = `
     <section class="result-block hero">
-      <h3>${data.target.name || '鏈懡鍚嶇洰鏍?}</h3>
-      <p><strong>缁撹锛?/strong>${data.verdict}</p>
-      <p><strong>缃俊搴︼細</strong>${data.confidence}</p>
-      <p><strong>椋庨櫓鍒嗭細</strong>${data.score}/100</p>
-      <p><strong>椋庨櫓甯︼細</strong>${data.riskBand}</p>
-      <p><strong>鎽樿锛?/strong>${data.summary}</p>
-      <p><strong>寤鸿锛?/strong>${data.recommendation}</p>
+      <h3>${data.target.name || '未命名目标'}</h3>
+      <p><strong>结论：</strong>${data.verdict}</p>
+      <p><strong>置信度：</strong>${data.confidence}</p>
+      <p><strong>风险分：</strong>${data.score}/100</p>
+      <p><strong>风险带：</strong>${data.riskBand}</p>
+      <p><strong>摘要：</strong>${data.summary}</p>
+      <p><strong>建议：</strong>${data.recommendation}</p>
     </section>
-    ${renderList('姝ｅ悜淇″彿', data.greenFlags)}
-    ${renderList('椋庨櫓淇″彿', data.redFlags)}
-    ${renderList('涓嬩竴姝ユ牳瀵?, data.nextChecks)}
+    ${renderList('正向信号', data.greenFlags)}
+    ${renderList('风险信号', data.redFlags)}
+    ${renderList('下一步核对', data.nextChecks)}
   `;
 
   resultCard.hidden = false;
