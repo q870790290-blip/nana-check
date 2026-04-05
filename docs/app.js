@@ -170,6 +170,26 @@ function renderList(title, items) {
   `;
 }
 
+function renderCaseStudies() {
+  return [
+    {
+      title: 'Case A · AI Agent Tool credibility check',
+      brief: 'Question: is this an actual tool or just a demo wrapped in hype?',
+      takeaway: 'Best when the buyer wants a fast yes/no/caution direction before spending more time.',
+    },
+    {
+      title: 'Case B · Token-gated research product risk check',
+      brief: 'Question: is this selling real value or mostly narrative and access psychology?',
+      takeaway: 'Best when the buyer is deciding whether a gated information product is worth paying for.',
+    },
+    {
+      title: 'Case C · Protocol / analytics platform follow-or-ignore check',
+      brief: 'Question: does this target look like it has a real path or only strong packaging?',
+      takeaway: 'Best when the buyer needs a first-pass triage before deeper research or payment.',
+    },
+  ];
+}
+
 function fillForm(example) {
   for (const [key, value] of Object.entries(example)) {
     const field = form.elements.namedItem(key);
@@ -211,9 +231,11 @@ form.addEventListener('submit', event => {
       <p><strong>Confidence:</strong> ${data.confidence}</p>
       <p><strong>Risk score:</strong> ${data.score}/100</p>
       <p><strong>Risk band:</strong> ${data.riskBand}</p>
+      <p><strong>Action:</strong> ${data.actionLabel}</p>
       <p><strong>Summary:</strong> ${data.summary}</p>
       <p><strong>Recommendation:</strong> ${data.recommendation}</p>
     </section>
+    ${renderList('Evidence checklist', data.evidenceChecklist)}
     ${renderList('Green flags', data.greenFlags)}
     ${renderList('Red flags', data.redFlags)}
     ${renderList('Next checks', data.nextChecks)}
@@ -223,3 +245,14 @@ form.addEventListener('submit', event => {
 });
 
 renderExamples();
+
+const caseStudiesContainer = document.getElementById('case-studies');
+if (caseStudiesContainer) {
+  caseStudiesContainer.innerHTML = renderCaseStudies().map(item => `
+    <article class="case-study-card">
+      <h3>${item.title}</h3>
+      <p><strong>Use case:</strong> ${item.brief}</p>
+      <p><strong>Why it matters:</strong> ${item.takeaway}</p>
+    </article>
+  `).join('');
+}
