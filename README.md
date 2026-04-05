@@ -50,6 +50,15 @@ This project is intended to evolve toward a crypto-native, pay-per-use research 
 
 The goal right now is to validate whether this capability is useful enough to deserve paid expansion.
 
+## Early pricing draft
+
+- Trial check: free first impression
+- Basic Nana Check: planned 10U
+- Deeper Risk Brief: planned 25U
+- Comparison Brief: planned 35U
+
+At the current MVP stage, payment is still handled manually after a formal request is submitted.
+
 ## Formal paid request entry
 
 If someone wants a deeper Nana Check judgment, they can open a structured request here:
