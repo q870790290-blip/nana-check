@@ -55,3 +55,11 @@ Current preferred payment method:
 - Address: `TDCxzmgAp1PSmEcvamtdhuELf1b5PdzZqz`
 
 After payment, include the transfer hash / screenshot in the issue thread for confirmation.
+
+## Payment confirmation
+
+<!-- paste transfer hash or mention that a screenshot will be attached -->
+
+## Expected delivery
+
+At the MVP stage, the completed deeper Nana Check result will be returned in this same issue thread after payment confirmation.
