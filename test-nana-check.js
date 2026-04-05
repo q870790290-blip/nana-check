@@ -1,5 +1,6 @@
 const { spawn } = require('child_process');
 const http = require('http');
+const PORT = 3027;
 
 function request(payload) {
   return new Promise((resolve, reject) => {
@@ -7,7 +8,7 @@ function request(payload) {
     const req = http.request(
       {
         hostname: '127.0.0.1',
-        port: 3017,
+        port: PORT,
         path: '/api/nana-check',
         method: 'POST',
         headers: {
@@ -29,7 +30,10 @@ function request(payload) {
 }
 
 async function main() {
-  const server = spawn(process.execPath, ['server.js'], { stdio: 'ignore' });
+  const server = spawn(process.execPath, ['server.js'], {
+    stdio: 'ignore',
+    env: { ...process.env, PORT: String(PORT) },
+  });
 
   try {
     await new Promise(resolve => setTimeout(resolve, 1200));
@@ -47,6 +51,10 @@ async function main() {
 
     if (!response.body.verdict || !Array.isArray(response.body.redFlags)) {
       throw new Error('Response shape is invalid');
+    }
+
+    if (!response.body.summary || !response.body.recommendation || !response.body.riskBand) {
+      throw new Error('Enhanced response fields missing');
     }
 
     console.log('Nana Check test passed');
