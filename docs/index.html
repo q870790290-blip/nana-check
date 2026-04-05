@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,22 +10,22 @@
     <main class="page">
       <section class="card">
         <h1>Nana Check</h1>
-        <p class="intro">输入项目、工具、协议或平台，快速拿到一版风险初判。</p>
+        <p class="intro">Enter a project, tool, protocol, or platform and get a fast first-pass risk judgment.</p>
         <div class="pricing-banner">
-          <strong>当前定位：</strong>
-          这是 Nana 的第一版按次付费判断能力。现在先开放体验和样例展示，后面再接正式收款。
+          <strong>Current Position:</strong>
+          Nana Check is the first paid judgment capability prototype from Nana. It is open for trial and examples now, with formal payment flow added next.
         </div>
         <form id="check-form">
           <label>
-            目标名称
-            <input name="name" placeholder="例如：Example Agent Tool" required />
+            Target Name
+            <input name="name" placeholder="Example Agent Tool" required />
           </label>
           <label>
-            网址
+            URL
             <input name="url" placeholder="https://example.com" />
           </label>
           <label>
-            分类
+            Category
             <select name="category">
               <option value="project">project</option>
               <option value="tool">tool</option>
@@ -35,101 +35,101 @@
             </select>
           </label>
           <label>
-            关注点
-            <textarea name="focus" rows="4" placeholder="例如：它是不是只会讲故事？值不值得继续跟？"></textarea>
+            Focus
+            <textarea name="focus" rows="4" placeholder="What exactly do you want Nana to judge?"></textarea>
           </label>
-          <button type="submit">开始检测</button>
+          <button type="submit">Run Nana Check</button>
         </form>
       </section>
 
       <section class="card">
-        <h2>真实样例方向</h2>
-        <p class="intro">先点一个样例，看看 Nana Check 这类能力以后会怎么交付。</p>
+        <h2>Example Directions</h2>
+        <p class="intro">Click one example to see how this capability can be delivered.</p>
         <div class="examples" id="examples"></div>
       </section>
 
       <section class="card">
-        <h2>更像真实世界的 3 个案例</h2>
+        <h2>3 Real-World Use Cases</h2>
         <div class="case-grid">
           <article class="case-card">
-            <h3>案例 1：AI Agent 工具值不值得信</h3>
-            <p>有人说一个 agent 工具能自动赚钱、自动接单、自动交易。Nana Check 会先帮你拆：它到底是 demo、壳子，还是有真实能力。</p>
+            <h3>Case 1: Is an AI agent tool actually real?</h3>
+            <p>When a tool claims automatic profit, automatic clients, or automatic trading, Nana Check helps separate real capability from demo hype.</p>
           </article>
           <article class="case-card">
-            <h3>案例 2：Token-gated 情报产品风险有多高</h3>
-            <p>面对“付费进圈、代币解锁、会员研究报告”这种模式，Nana Check 会先帮你看：它卖的是价值，还是在卖情绪和叙事。</p>
+            <h3>Case 2: How risky is a token-gated intelligence product?</h3>
+            <p>When a product sells paid access, token unlocks, or gated research, Nana Check helps judge whether it sells real value or just emotion and narrative.</p>
           </article>
           <article class="case-card">
-            <h3>案例 3：协议 / 分析平台值不值得继续跟</h3>
-            <p>当一个协议、数据平台、Agent 市场看起来很强时，Nana Check 会先做一轮初判：它是真有路，还是只是包装得像有路。</p>
+            <h3>Case 3: Is a protocol or analytics platform worth following?</h3>
+            <p>When a protocol, data platform, or agent marketplace looks strong, Nana Check gives a first-pass answer on whether it has a real path or only strong packaging.</p>
           </article>
         </div>
       </section>
 
       <section class="card result-card" id="result-card" hidden>
-        <h2>结果</h2>
+        <h2>Result</h2>
         <div id="result"></div>
       </section>
 
       <section class="card">
-        <h2>支付 / 联系入口</h2>
-        <p class="intro">现在还在 MVP 阶段，先用这个页面验证产品价值。等正式接入支付后，会优先支持稳定币 / U 轨道。</p>
+        <h2>Payment / Contact</h2>
+        <p class="intro">This is still an MVP. The page is for validating product value first. Stablecoin / U rails are the intended long-term payment path.</p>
         <ul class="contact-list">
-          <li>当前状态：体验版 / 样例版</li>
-          <li>当前机制：先免费试 1 次，再进入正式付费判断</li>
-          <li>目标收款：稳定币 / U / 后续 x402</li>
-          <li>当前联系入口：GitHub 仓库 Issues / 仓库主页</li>
+          <li>Current state: trial / sample version</li>
+          <li>Current flow: first free trial, then formal paid judgment</li>
+          <li>Target payment rail: stablecoins / U / later x402</li>
+          <li>Current request entry: GitHub Issues / repo homepage</li>
         </ul>
-        <p><a href="https://github.com/q870790290-blip/nana-check" target="_blank" rel="noreferrer">前往 Nana Check 仓库</a></p>
-        <p><a href="https://github.com/q870790290-blip/nana-check/issues/new/choose" target="_blank" rel="noreferrer">发起正式 Nana Check 请求</a></p>
+        <p><a href="https://github.com/q870790290-blip/nana-check" target="_blank" rel="noreferrer">Open Nana Check repository</a></p>
+        <p><a href="https://github.com/q870790290-blip/nana-check/issues/new/choose" target="_blank" rel="noreferrer">Open a formal Nana Check request</a></p>
         <div class="wallet-box">
-          <strong>当前收款方式：</strong>
+          <strong>Current payment method:</strong>
           <p>USDT-TRC20</p>
           <code>TDCxzmgAp1PSmEcvamtdhuELf1b5PdzZqz</code>
-          <p class="wallet-note">正式付费后，请在请求里附上转账哈希或付款截图，方便确认。</p>
+          <p class="wallet-note">After payment, attach the transfer hash or screenshot inside the request for confirmation.</p>
         </div>
       </section>
 
       <section class="card">
-        <h2>当前价格草案</h2>
+        <h2>Current Pricing Draft</h2>
         <div class="price-grid">
           <article class="price-card">
             <h3>Trial</h3>
-            <p class="price">免费</p>
-            <p>先体验一次，确认 Nana Check 这类结果对你有没有价值。</p>
+            <p class="price">Free</p>
+            <p>Use one free pass first and see whether Nana Check is useful enough for you.</p>
           </article>
           <article class="price-card">
             <h3>Basic Nana Check</h3>
             <p class="price">10U</p>
-            <p>适合先做一轮正式初判，拿到风险带、摘要、建议和下一步核对方向。</p>
+            <p>Best for a formal first-pass judgment with risk band, summary, recommendation, and next checks.</p>
           </article>
           <article class="price-card">
             <h3>Deeper Risk Brief</h3>
             <p class="price">25U</p>
-            <p>适合对一个目标做更深入的风险拆解，帮助你决定值不值得继续跟。</p>
+            <p>Best for a deeper risk breakdown when you want to decide whether something is worth following.</p>
           </article>
           <article class="price-card">
             <h3>Comparison Brief</h3>
             <p class="price">35U</p>
-            <p>适合比较 2-3 个项目 / 工具 / 协议，帮助你更快选边站。</p>
+            <p>Best for comparing 2-3 projects, tools, or protocols before choosing a side.</p>
           </article>
         </div>
       </section>
 
       <section class="card">
-        <h2>当前试用方式</h2>
+        <h2>How It Works Right Now</h2>
         <div class="flow-steps">
           <div class="flow-step">
             <strong>1.</strong>
-            <span>先用页面做一次免费初判，确认这类结果是不是你想要的。</span>
+            <span>Run one free trial from the page and decide whether the result is useful.</span>
           </div>
           <div class="flow-step">
             <strong>2.</strong>
-            <span>如果要更深一层的判断，再通过仓库入口发起正式需求。</span>
+            <span>If you want a deeper judgment, open a formal request through the repository entry.</span>
           </div>
           <div class="flow-step">
             <strong>3.</strong>
-            <span>正式版后续会优先接稳定币 / U 付费；当前 MVP 已可用 USDT-TRC20 手动付款，再附上付款凭证确认。</span>
+            <span>The MVP currently accepts manual USDT-TRC20 payment, followed by payment proof confirmation.</span>
           </div>
         </div>
       </section>
