@@ -1,0 +1,14 @@
+{
+  "name": "nana-api-plan",
+  "version": "1.0.0",
+  "description": "First product direction for Nana: a pay-per-use crypto-native analysis capability.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-nana-check.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
