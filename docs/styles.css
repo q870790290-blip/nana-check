@@ -120,6 +120,30 @@ button:hover {
   line-height: 1.6;
 }
 
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.price-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: #10151d;
+  border: 1px solid #2f3748;
+}
+
+.price-card h3 {
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #b8c7ff;
+  margin: 0 0 12px;
+}
+
 .example-card {
   text-align: left;
   background: #10151d;
