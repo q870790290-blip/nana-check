@@ -120,6 +120,23 @@ button:hover {
   line-height: 1.6;
 }
 
+.case-studies {
+  display: grid;
+  gap: 12px;
+}
+
+.case-study-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: #10151d;
+  border: 1px solid #2f3748;
+}
+
+.case-study-card p {
+  color: #c3cad7;
+  margin: 10px 0 0;
+}
+
 .price-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
